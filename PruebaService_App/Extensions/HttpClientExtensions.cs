@@ -1,9 +1,7 @@
 ﻿using PruebaService_Common.Interfaces;
 using PruebaService_Common.Models;
 using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using static System.ExceptionExtensions;

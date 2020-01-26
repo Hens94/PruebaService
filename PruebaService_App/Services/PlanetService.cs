@@ -4,32 +4,35 @@ using PruebaService_App.Extensions;
 using PruebaService_App.Models.HttpClients;
 using PruebaService_App.ViewModels;
 using PruebaService_Common.Interfaces;
-using PruebaService_Data.Contracts;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using static System.ExceptionExtensions;
 
 namespace PruebaService_App.Services
 {
-    public class PeopleService : IPeople
+    public class PlanetService : IPlanet
     {
         private readonly IPruebaHttpClient _pruebaHttpClient;
-        private readonly IPersonData _personData;
 
-        public PeopleService(IPruebaHttpClient pruebaHttpClient, IPersonData personData)
+        public PlanetService(IPruebaHttpClient pruebaHttpClient)
         {
             _pruebaHttpClient = pruebaHttpClient;
-            _personData = personData;
         }
 
         public async Task<IResult> GetAll() =>
-            await UseCatchExceptionAsync<IResult, AppException>(
-                async execError =>
+            await UseCatchCustomExceptionAsync<IResult, AppException>(
+                async (execError, execException) =>
                 {
-                    var people = await _pruebaHttpClient.GetPeople().GetFromJson<PeopleResponse>();
+                    var planetsResponse = await _pruebaHttpClient.GetPlanets().GetFromJson<PeopleResponse>();
 
-                    return new ResultViewModel<IEnumerable<PeopleViewModel>>(await people.ToPeopleViewModel(_personData));
+                    if (!planetsResponse.Code.Equals(0))
+                    {
+                        execException(new HttpClientException(message: planetsResponse.Message, resultCode: 111, statusCode: HttpStatusCode.OK));
+                    }
+
+                    return new ResultViewModel<IEnumerable<PersonResponse>>(planetsResponse.Data.People);
                 },
                 "Ha ocurrido un error no controlado al momento de obtener la información de personas");
     }

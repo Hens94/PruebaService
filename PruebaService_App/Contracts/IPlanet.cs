@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace PruebaService_App.Contracts
 {
-    public interface IPeople
+    public interface IPlanet
     {
         Task<IResult> GetAll();
     }

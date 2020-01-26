@@ -1,7 +1,4 @@
 ﻿using PruebaService_Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.Json.Serialization;
 
 namespace PruebaService_App.ViewModels

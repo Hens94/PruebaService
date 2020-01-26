@@ -9,18 +9,17 @@ namespace PruebaService_Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PeopleController : ControllerBase
+    public class PlanetController : ControllerBase
     {
-        private readonly IPeople _people;
+        private readonly IPlanet _planet;
 
-        public PeopleController(IPeople people)
+        public PlanetController(IPlanet planet)
         {
-            _people = people;
+            _planet = planet;
         }
 
         [HttpGet]
         public async Task<IResult> Get() =>
-            await _people.GetAll();
-
+            await _planet.GetAll();
     }
 }

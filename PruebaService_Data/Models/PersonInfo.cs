@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PruebaService_Data.Models
+﻿namespace PruebaService_Data.Models
 {
     public class PersonInfo
     {

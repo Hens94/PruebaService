@@ -7,7 +7,6 @@ using PruebaService_Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using static System.ExceptionExtensions;
 
@@ -21,7 +20,7 @@ namespace PruebaService_App.Extensions
                 {
                     if (!peopleResponse.Code.Equals(0))
                     {
-                        execException(new HttpClientException(message: peopleResponse.Message, resultCode: 111, statusCode:HttpStatusCode.OK));
+                        execException(new HttpClientException(message: peopleResponse.Message, resultCode: 111, statusCode: HttpStatusCode.OK));
                     }
 
                     var people = peopleResponse.Data.People;
@@ -37,7 +36,7 @@ namespace PruebaService_App.Extensions
                         var mass = personInfo?.Data.Mass ?? 0;
 
                         peopleViewModel.Add(new PeopleViewModel
-                        { 
+                        {
                             Id = person.Id,
                             Name = person.Name,
                             Height = heigth,

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PruebaService_Common.Interfaces
+﻿namespace PruebaService_Common.Interfaces
 {
     public interface IResult
     {

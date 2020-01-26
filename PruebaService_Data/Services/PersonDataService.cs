@@ -5,9 +5,7 @@ using PruebaService_Common.Models;
 using PruebaService_Data.Contracts;
 using PruebaService_Data.Models;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Text;
 using System.Threading.Tasks;
 using static System.ExceptionExtensions;
 

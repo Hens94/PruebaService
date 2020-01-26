@@ -1,7 +1,4 @@
 ﻿using PruebaService_Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PruebaService_Common.Models
 {
@@ -11,7 +8,7 @@ namespace PruebaService_Common.Models
         public string Message { get; set; }
         public string DetailMessage { get; set; }
 
-        public Result() {}
+        public Result() { }
 
         public Result(string message, int code = 999, string detailMessage = null)
         {
@@ -25,7 +22,7 @@ namespace PruebaService_Common.Models
     {
         public T Data { get; set; }
 
-        public Result() {}
+        public Result() { }
 
         public Result(T data, int code = 0, string message = "Se ha obtenido la información correctamente")
         {

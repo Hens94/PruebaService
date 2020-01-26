@@ -8,9 +8,6 @@ using PruebaService_Common.Configurations;
 using PruebaService_Data.Contracts;
 using PruebaService_Data.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -19,6 +16,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddIoC(this IServiceCollection services) =>
             services
                 .AddTransient<IPeople, PeopleService>()
+                .AddTransient<IPlanet, PlanetService>()
                 .AddTransient<IPersonData, PersonDataService>();
 
         public static IServiceCollection AddCustomMiddleware(this IServiceCollection services) =>
@@ -33,7 +31,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 .AddHttpClient<IPruebaHttpClient, PruebaHttpClientService>(client => client.BaseAddress = pruebaApiServiceBase);
 
             return services;
-        }            
+        }
 
         public static IServiceCollection AddConfigurations(this IServiceCollection services, IConfiguration config) =>
             services

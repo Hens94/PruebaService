@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PruebaService_Common.Configurations
+﻿namespace PruebaService_Common.Configurations
 {
     public class PruebaEndpointConfig
     {
@@ -13,5 +9,6 @@ namespace PruebaService_Common.Configurations
     public class Resources
     {
         public string People { get; set; }
+        public string Planet { get; set; }
     }
 }
